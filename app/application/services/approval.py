@@ -38,5 +38,5 @@ class ApprovalService:
         )
 
         request.record_approval(approval)
-
+        
         self._request_repo.save(request)
