@@ -47,7 +47,7 @@ class ApprovalActionModel(Base):
     reason = Column(String)
 
     request = relationship("RequestModel", back_populates="approvals")
-
+    
     __table_args__ = (
         UniqueConstraint(
             "request_id",
