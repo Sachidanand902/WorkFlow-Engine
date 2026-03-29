@@ -43,11 +43,11 @@ class ApprovalActionModel(Base):
     request_id = Column(UUID(as_uuid=True), ForeignKey("requests.id"), nullable=False)
     actor_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     decision = Column(String, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow, nullable=False)
+    timestamp = Column(DateTime, default=datetime.now, nullable=False)
     reason = Column(String)
 
     request = relationship("RequestModel", back_populates="approvals")
-    
+
     __table_args__ = (
         UniqueConstraint(
             "request_id",
